@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card card-body">
-      <form action="{{ route('kelas-store') }}" method="post">
+      <form action="" method="post">
         @csrf
         <div class="form-group">
           <label >KODE KELAS</label>
