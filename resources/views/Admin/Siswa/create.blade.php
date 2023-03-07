@@ -2,20 +2,32 @@
 
 @section('content')
     <div class="card card-body">
-      <form action="" method="post">
+      <form action="{{ route('siswa-store') }}" method="post">
         @csrf
         <div class="form-group">
-          <label >KODE KELAS</label>
-          <input class="form-control" name="kode_kelas">
+          <label >NIS</label>
+          <input class="form-control" name="nis">
         </div>
         <div class="form-group">
-            <label >NAMA KELAS</label>
+            <label >NAMA SISWA</label>
             <input class="form-control" name="nama">
           </div>
         <div class="form-group">
-            <label >KETERANGAN</label>
-            <input class="form-control" name="keterangan">
-        </div>
+            <select class="form-control" name="kelas_id">
+              <option label="Pilih Kelas"></option>
+              @foreach ($kelas as $item)
+              <option value="{{ $item->id }}">{{ $item->nama }}</option>
+              @endforeach
+            </select>
+          </div>
+        <div class="form-group">
+          <label >JENIS KELAMIN</label>
+          <input class="form-control" name="jenis_kelamin">
+      </div>
+        <div class="form-group">
+          <label >ALAMAT</label>
+          <input class="form-control" name="alamat">
+      </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

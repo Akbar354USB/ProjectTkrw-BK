@@ -2,22 +2,34 @@
 
 @section('content')
   <div class="card card-body">
-    <form action="" method="post">
+    <form action="{{ route('siswa-update', $siswa->id ) }}" method="post">
       @csrf
       @method("put")
       <div class="form-group">
-          <label >KODE KELAS</label>
-          <input class="form-control" name="kode_kelas" value="">
+        <label >NIS</label>
+        <input class="form-control" name="nis" value="{{ $siswa->nis }}">
+      </div>
+      <div class="form-group">
+          <label >NAMA SISWA</label>
+          <input class="form-control" name="nama" value="{{ $siswa->nama }}">
         </div>
       <div class="form-group">
-        <label >NAMA KELAS</label>
-        <input class="form-control" name="nama" value="">
-      </div>
+          <select class="form-control" name="kelas_id">
+            <option label="Pilih Kelas"></option>
+            @foreach ($kelas as $item)
+            <option @if($siswa->kelas_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->nama }}</option>
+            @endforeach
+          </select>
+        </div>
       <div class="form-group">
-          <label >KETERANGAN</label>
-          <input class="form-control" name="keterangan" value="">
-      </div>
-      <button type="submit" class="btn btn-primary">Update</button>
+        <label >JENIS KELAMIN</label>
+        <input class="form-control" name="jenis_kelamin" value="{{ $siswa->jenis_kelamin }}">
+    </div>
+      <div class="form-group">
+        <label >ALAMAT</label>
+        <input class="form-control" name="alamat" value="{{ $siswa->alamat }}">
+    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 
