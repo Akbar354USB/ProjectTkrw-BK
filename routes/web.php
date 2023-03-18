@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,4 +43,12 @@ Route::post('guru/store', [GuruController::class, 'store'])->name('guru-store');
 Route::get('/guru/index', [GuruController::class, 'index'])->name('guru-index');
 Route::get('/guru/edit{id}', [GuruController::class, 'edit'])->name('guru-edit');
 Route::put('/guru/update{id}', [GuruController::class, 'update'])->name('guru-update');
+// Route::delete('/kelas/delete{id}', [KelasController::class, 'destroy'])->name('kelas-delete');
+
+//route Peraturan
+Route::get('/peraturan/create', [PeraturanController::class, 'create'])->name('peraturan-create');
+Route::post('peraturan/store', [PeraturanController::class, 'store'])->name('peraturan-store');
+Route::get('/peraturan/index', [PeraturanController::class, 'index'])->name('peraturan-index');
+// Route::get('/kelas/edit{id}', [KelasController::class, 'edit'])->name('kelas-edit');
+// Route::put('/kelas/update{id}', [KelasController::class, 'update'])->name('kelas-update');
 // Route::delete('/kelas/delete{id}', [KelasController::class, 'destroy'])->name('kelas-delete');
