@@ -22,12 +22,12 @@
     </tr>
   </thead>
   <tbody>
-      {{-- @foreach ($kelas as $key => $item) --}}
+      @foreach ($peraturan as $key => $item)
       <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th scope="row">{{ $key + 1 }}</th>
+      <td>{{ $item ->kode_peraturan }}</td>
+      <td>{{ $item->nama }}</td>
+      <td>{{ $item->skor }}</td>
       <td>
           <a class="btn btn-primary" href="" >Edit</a>
           <form action="" method="post" style="display: inline" class="form-check-inline">
@@ -37,7 +37,7 @@
           </form>
       </td>
       </tr>
-    {{-- @endforeach --}}
+    @endforeach
   </tbody>
 </table>
 </div>

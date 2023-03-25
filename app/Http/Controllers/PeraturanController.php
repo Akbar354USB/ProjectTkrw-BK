@@ -14,14 +14,13 @@ class PeraturanController extends Controller
     public function store(Request $request){
         Peraturan::create($request->all());
 
-        // return redirect()->route('kelas-index');
+        return redirect()->route('peraturan-index');
     }
 
     public function index(){
-        // $kelas = Kelas::all();
+        $peraturan = Peraturan::all();
         
-        // return view('Admin.Kelas.index', compact('kelas'));
-        return view('Admin.Peraturan.index');
+        return view('Admin.Peraturan.index', compact('peraturan'));
     }
 
     // public function edit($id){
