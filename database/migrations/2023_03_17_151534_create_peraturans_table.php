@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('peraturans', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_peraturan');
+            $table->string('kode_peraturan')->unique();
             $table->string('nama');
             $table->string('skor');
             $table->timestamps();
