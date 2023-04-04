@@ -52,3 +52,6 @@ Route::get('/peraturan/index', [PeraturanController::class, 'index'])->name('per
 // Route::get('/kelas/edit{id}', [KelasController::class, 'edit'])->name('kelas-edit');
 // Route::put('/kelas/update{id}', [KelasController::class, 'update'])->name('kelas-update');
 // Route::delete('/kelas/delete{id}', [KelasController::class, 'destroy'])->name('kelas-delete');
+
+//route pelanggaran
+Route::get('/pelanggaran/create', [PeraturanController::class, 'create'])->name('pelanggaran-create');

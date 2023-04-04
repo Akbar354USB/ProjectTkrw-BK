@@ -19,4 +19,9 @@ class Siswa extends Model
     public function kelas(){
         return $this->belongsTo(Kelas::class);
     }
+
+    public function relasipelanggaran(){
+        return $this->hasMany(Pelanggaran::class);
+    }
+
 }
