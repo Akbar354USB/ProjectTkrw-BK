@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
@@ -54,4 +55,9 @@ Route::get('/peraturan/index', [PeraturanController::class, 'index'])->name('per
 // Route::delete('/kelas/delete{id}', [KelasController::class, 'destroy'])->name('kelas-delete');
 
 //route pelanggaran
-Route::get('/pelanggaran/create', [PeraturanController::class, 'create'])->name('pelanggaran-create');
+Route::get('/pelanggaran/create', [PelanggaranController::class, 'create'])->name('pelanggaran-create');
+Route::post('pelanggaran/store', [PelanggaranController::class, 'store'])->name('pelanggaran-store');
+Route::get('/pelanggaran/index', [PelanggaranController::class, 'index'])->name('pelanggaran-index');
+Route::get('/pelanggaran/edit{id}', [PelanggaranController::class, 'edit'])->name('pelanggaran-edit');
+Route::put('/pelanggaran/update{id}', [PelanggaranController::class, 'update'])->name('pelanggaran-update');
+Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran-delete');

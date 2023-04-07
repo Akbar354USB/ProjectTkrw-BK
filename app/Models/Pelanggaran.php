@@ -9,14 +9,14 @@ class Pelanggaran extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'kode_pelanggaran',
         'nama_pelanggaran',
+        'nama_siswa',
         'tanggal',
-        'siswa_id',
+        'kelas_id',
         
     ];
 
-    public function relasisiswa(){
-        return $this->belongsTo(Pelanggaran::class);
+    public function kelas(){
+        return $this->belongsTo(Kelas::class);
     }
 }

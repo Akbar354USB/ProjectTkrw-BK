@@ -14,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('pelanggarans', function (Blueprint $table) {
             $table->id();
-            $table->string("kode_pelanggaran")->unique();
             $table->string("nama_pelanggaran");
+            $table->string("nama_siswa");
             $table->date("tanggal");
-            $table->bigInteger('siswa_id')->unsigned();
+            $table->bigInteger('kelas_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('siswa_id')->references('id')->on('siswas')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 

@@ -13,4 +13,8 @@ class Kelas extends Model
         'nama',
         'keterangan',
     ];
+
+    public function relasipelanggaran(){
+        return $this->hasMany(Pelanggaran::class);
+    }
 }
