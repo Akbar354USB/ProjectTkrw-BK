@@ -4,7 +4,9 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\PeraturanController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\SiswaController;
+use App\Models\Riwayat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,3 +63,11 @@ Route::get('/pelanggaran/index', [PelanggaranController::class, 'index'])->name(
 Route::get('/pelanggaran/edit{id}', [PelanggaranController::class, 'edit'])->name('pelanggaran-edit');
 Route::put('/pelanggaran/update{id}', [PelanggaranController::class, 'update'])->name('pelanggaran-update');
 Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran-delete');
+
+//route Riwayat
+Route::get('/riwayat/create', [RiwayatController::class, 'create'])->name('riwayat-create');
+Route::post('riwayat/store', [RiwayatController::class, 'store'])->name('riwayat-store');
+Route::get('/riwayat/index', [RiwayatController::class, 'index'])->name('riwayat-index');
+Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riwayat-edit');
+Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
+Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
