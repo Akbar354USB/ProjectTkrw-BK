@@ -71,3 +71,7 @@ Route::get('/riwayat/index', [RiwayatController::class, 'index'])->name('riwayat
 Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riwayat-edit');
 Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
 Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

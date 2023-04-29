@@ -22,9 +22,14 @@
           <input class="form-control" name="skor" value="{{ $riwayat->skor }}">
         </div>
      
-      <div class="form-group">
+      {{-- <div class="form-group">
         <label >TANGGAL</label>
         <input class="form-control" name="tanggal" value="{{ $riwayat->tanggal }}">
+      </div> --}}
+
+      <div class="mb-3">
+        <label class="form-label" for="basic-form-dob">Date of Birth</label>
+        <input class="form-control" name="tanggal" value="{{ $riwayat->tanggal }}" id="basic-form-dob" type="date" />
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

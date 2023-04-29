@@ -20,9 +20,14 @@
             <label >SKOR</label>
             <input class="form-control" name="skor">
           </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label >TANGGAL</label>
           <input type="text" class="form-control" name="tanggal">
+      </div> --}}
+
+      <div class="mb-3">
+        <label class="form-label" for="basic-form-dob">TANGGAL</label>
+        <input class="form-control" name="tanggal" id="basic-form-dob" type="date" />
       </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

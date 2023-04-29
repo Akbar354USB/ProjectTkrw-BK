@@ -64,7 +64,7 @@
 @endsection
 
 @section('content')
-<div class="card card-body">
+{{-- <div class="card card-body">
 <div class="form-group row mb-1 mt-3">
 <div class="col-sm-6 mb-3 mb-sm-0">
   <a href="{{ route("kelas-create") }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
@@ -95,10 +95,13 @@
               <button class="btn btn-danger" type="submit">Hapus</button>
           </form>
       </td>
-      </tr>
-    @endforeach
-  </tbody>
+      </tr> --}}
+    {{-- @endforeach --}}
+  {{-- </tbody>
 </table>
-</div>
+</div> --}}
+
+
+
 
 @endsection
