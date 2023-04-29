@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('backend.master');
+    return view('auth.login');
 });
 
 //route kelas
@@ -72,6 +72,8 @@ Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riway
 Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
 Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
