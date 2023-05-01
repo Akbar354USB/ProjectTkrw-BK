@@ -6,6 +6,7 @@ use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\UserController;
 use App\Models\Riwayat;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +73,9 @@ Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riway
 Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
 Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
 
+//user
+Route::get('/user/index', [UserController::class, 'index'])->name('user-index');
+Route::get('/user/detail{id}', [UserController::class, 'detail'])->name('user-detail');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

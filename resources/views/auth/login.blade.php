@@ -79,7 +79,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in</title>
+  <title>B-Konseling | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -93,7 +93,7 @@
 <body class="hold-transition login-page" style="background-color: rgb(106, 154, 227)">
 <div class="login-box">
   <div class="login-logo">
-    <p><b>B-</b>KONSELING</p>
+    <p><b>B-</b>Konseling</p>
   </div>
   <!-- /.login-logo -->
   <div class="card">
