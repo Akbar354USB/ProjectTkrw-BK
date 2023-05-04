@@ -13,13 +13,16 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">Bagian Admin</div>
 
     <!-- Nav Item - manage user -->
     <li class="nav-item">
@@ -47,34 +50,71 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    
+    <!-- Heading -->
+    <div class="sidebar-heading">Bagian pihak BK</div>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link" href="{{ route('peraturan-index') }}">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
+            <span>Data Peraturan</span></a>
     </li>
-
-
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('riwayat-index') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span> Data Riwayat Pelanggaran</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('pelanggaran-index') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Data Pelanggaran</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('riwayat-index') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Data Laporan</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    <!-- Heading -->
+    <div class="sidebar-heading">Bagian Siswa</div>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('pelanggaran-create') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Lapor Pelanggaran</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('riwayat-index') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Data Riwayat Pelanggaran</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
+        <!-- Heading -->
+        <div class="sidebar-heading">Bagian Guru</div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('pelanggaran-create') }}">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Lapor Pelanggaran</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('riwayat-index') }}">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Data Riwayat Pelanggaran</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+        <!-- Heading -->
+        <div class="sidebar-heading">Bagian Kepsek</div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('peraturan-index') }}">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Daftar Laporan Masuk</span></a>
+        </li>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
