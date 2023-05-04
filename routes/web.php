@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PelanggaranController;
@@ -76,8 +77,13 @@ Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->nam
 //user
 Route::get('/user/index', [UserController::class, 'index'])->name('user-index');
 Route::get('/user/detail{id}', [UserController::class, 'detail'])->name('user-detail');
+Route::get('/user/create', [UserController::class, 'create'])->name('user-create');
+Route::post('user/store', [UserController::class, 'store'])->name('user-store');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+Route::match(["GET", "POST"], "/register", function(){
+    return redirect("/login");
+   })->name("register");

@@ -1,14 +1,14 @@
 @extends('backend.master')
 
 @section('tittle')
-    <title>Data Kelas</title>
+    <title>B-Konseling | Data User </title>
 @endsection
 
 @section('content')
 <div class="card card-body">
 <div class="form-group row mb-1 mt-3">
 <div class="col-sm-6 mb-3 mb-sm-0">
-  <a href=""><button class="btn btn-primary mb-4">Tambah Data</button></a>
+  <a href="{{ route('user-create') }}"><button class="btn btn-primary mb-4">+ Tambah Data User</button></a>
 </div>
 </div>
   <table class="table table-striped mt-1">
@@ -18,7 +18,7 @@
       <th scope="col">NAMA</th>
       <th scope="col">EMAIL</th>
       <th scope="col">ROLE</th>
-      <th scope="col">PHOTO</th>
+      <th scope="col">PROFIL</th>
       <th scope="col">AKSI</th>
     </tr>
   </thead>

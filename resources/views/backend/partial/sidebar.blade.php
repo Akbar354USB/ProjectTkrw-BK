@@ -23,7 +23,7 @@
 
     <!-- Nav Item - manage user -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('user-index') }}">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Kelola User</span></a>
     </li>

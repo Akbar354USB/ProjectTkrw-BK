@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('tittle')
-    <title>My Profile</title>
+    <title>B-Konseling | Detail Profile</title>
 @endsection
 
 @section('content')
