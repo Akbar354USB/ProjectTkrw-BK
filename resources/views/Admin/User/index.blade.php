@@ -33,7 +33,7 @@
       <td>
           <a class="btn btn-primary" href="" >Edit</a>
           <a class="btn btn-success" href="{{ route('user-detail', $item->id) }}" >Detail</a>
-          <form action="" method="post" style="display: inline" class="form-check-inline">
+          <form action="{{ route('user-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
               @csrf
               @method('DELETE')
               <button class="btn btn-danger" type="submit">Hapus</button>

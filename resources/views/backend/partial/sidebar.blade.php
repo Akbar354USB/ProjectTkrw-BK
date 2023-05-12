@@ -81,7 +81,7 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('pelanggaran-create') }}">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-fw fa-wrench"></i
             <span>Lapor Pelanggaran</span></a>
     </li>
     <li class="nav-item">

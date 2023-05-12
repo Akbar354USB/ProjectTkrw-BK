@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 //route kelas
@@ -79,6 +79,7 @@ Route::get('/user/index', [UserController::class, 'index'])->name('user-index');
 Route::get('/user/detail{id}', [UserController::class, 'detail'])->name('user-detail');
 Route::get('/user/create', [UserController::class, 'create'])->name('user-create');
 Route::post('user/store', [UserController::class, 'store'])->name('user-store');
+Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('user-delete');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
