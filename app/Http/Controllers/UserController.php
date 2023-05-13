@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function index(){
-        $user = User::all();
+        $user = User::paginate(5);
         
         return view('Admin.User.index', compact('user'));
     }
@@ -44,13 +44,13 @@ class UserController extends Controller
         // dd($post);
         User::create($post);
 
-        return redirect()->route('user-index');
+        return redirect()->route('user-index')->with('status', 'Sukses Tambah Data User');
     }
 
     public function destroy($id){
         $user = User::where("id", $id)->first();
         $user->delete();
 
-        return redirect()->route('user-index');
+        return redirect()->route('user-index')->with('status', 'Sukses Hapus Data Kelas');
     }
 }

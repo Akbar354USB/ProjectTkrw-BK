@@ -25,32 +25,32 @@ class GuruController extends Controller
         ]);
         Guru::create($request->all());
 
-        return redirect()->route('guru-index');
+        return redirect()->route('guru-index')->with('status', 'Sukses Tambah Data Guru');
     }
 
     public function index(){
-        $guru = Guru::all();
+        $guru = Guru::paginate(5);
         
         return view('Admin.Guru.index', compact('guru'));
     }
 
     public function edit($id){
-        $kelas = Guru::where("id", $id)->first();
+        $guru = Guru::where("id", $id)->first();
 
-        return view('Admin.Guru.edit', compact('kelas'));
+        return view('Admin.Guru.edit', compact('guru'));
     }
 
     public function update(Request $request, $id){
-        $kelas = Guru::where("id", $id)->first();
-        $kelas->update($request->all());
+        $guru = Guru::where("id", $id)->first();
+        $guru->update($request->all());
 
-        return redirect()->route('guru-index');
+        return redirect()->route('guru-index')->with('status', 'Sukses Update Data Guru');
     }
 
-    // public function destroy($id){
-    //     $kelas = Kelas::where("id", $id)->first();
-    //     $kelas->delete();
+    public function destroy($id){
+        $guru = Guru::where("id", $id)->first();
+        $guru->delete();
 
-    //     return redirect()->route('kelas-index');
-    // }
+        return redirect()->route('guru-index')->with('status', 'Sukses Hapus Data Guru');
+    }
 }

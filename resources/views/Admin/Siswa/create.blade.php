@@ -32,7 +32,11 @@
           </div>
         <div class="form-group">
           <label >JENIS KELAMIN</label>
-          <input class="form-control" name="jenis_kelamin">
+          {{-- <input class="form-control" name="jenis_kelamin"> --}}
+          <select name="jenis_kelamin" class="form-control">
+            <option value="LAKI-LAKI">LAKI-LAKI</option>
+            <option value="PEREMPUAN">PEREMPUAN</option>
+          </select>
           @error('jenis_kelamin')
           <span class="text-danger">
             <strong>{{ $message }}</strong>

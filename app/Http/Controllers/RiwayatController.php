@@ -26,7 +26,7 @@ class RiwayatController extends Controller
 
         Riwayat::create($request->all());
 
-        return redirect()->route('riwayat-index');
+        return redirect()->route('riwayat-index')->with('status', 'Sukses Tambah Data Riwayat');
     }
 
     public function index(){
@@ -46,14 +46,14 @@ class RiwayatController extends Controller
         $riwayat = Riwayat::where("id", $id)->first();
         $riwayat->update($request->all());
 
-        return redirect()->route('riwayat-index');
+        return redirect()->route('riwayat-index')->with('status', 'Sukses Update Data Riwayat');
     }
 
     public function destroy($id){
         $riwayat = Riwayat::where("id", $id)->first();
         $riwayat->delete();
 
-        return redirect()->route('riwayat-index');
+        return redirect()->route('riwayat-index')->with('status', 'Sukses Hapus Data Riwayat');
     }
 
 

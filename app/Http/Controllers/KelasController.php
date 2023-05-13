@@ -23,11 +23,11 @@ class KelasController extends Controller
         ]);
 
         Kelas::create($request->all());
-        return redirect()->route('kelas-index');
+        return redirect()->route('kelas-index')->with('status', 'Sukses Tambah Data Kelas');
     }
 
     public function index(){
-        $kelas = Kelas::all();
+        $kelas = Kelas::paginate(5);
         
         return view('Admin.Kelas.index', compact('kelas'));
     }
@@ -42,13 +42,13 @@ class KelasController extends Controller
         $kelas = Kelas::where("id", $id)->first();
         $kelas->update($request->all());
 
-        return redirect()->route('kelas-index');
+        return redirect()->route('kelas-index')->with('status', 'Sukses Update Data Kelas');
     }
 
     public function destroy($id){
         $kelas = Kelas::where("id", $id)->first();
         $kelas->delete();
 
-        return redirect()->route('kelas-index');
+        return redirect()->route('kelas-index')->with('status', 'Sukses Hapus Data Kelas');
     }
 }

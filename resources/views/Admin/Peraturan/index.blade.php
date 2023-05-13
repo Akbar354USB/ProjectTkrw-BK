@@ -29,8 +29,8 @@
       <td>{{ $item->nama }}</td>
       <td>{{ $item->skor }}</td>
       <td>
-          <a class="btn btn-primary" href="" >Edit</a>
-          <form action="" method="post" style="display: inline" class="form-check-inline">
+          <a class="btn btn-primary" href="{{ route('peraturan-edit', $item->id) }}" >Edit</a>
+          <form action="{{ route('peraturan-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
               @csrf
               @method('DELETE')
               <button class="btn btn-danger" type="submit">Hapus</button>
@@ -41,4 +41,21 @@
   </tbody>
 </table>
 </div>
+
+
+<div class="mt-2 float-right">
+  {{ $peraturan->links() }}
+</div>
+
+
+@if (session('status'))
+<script>
+  Swal.fire({
+    icon : 'success',
+    title : 'Sukses!',
+    text : "{{ session('status') }}",
+  });
+</script>
+@endif
+
 @endsection

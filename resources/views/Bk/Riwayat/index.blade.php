@@ -40,8 +40,18 @@
   </table>
   </div>
 
-  {{-- tag menambahkan pagination --}}
-  {{-- <div class="mt-2 float-right">
-    {{ $pelanggaran->links() }}
-  </div> --}}
+  <div class="mt-2 float-right">
+    {{ $riwayat->links() }}
+  </div>
+  
+  
+  @if (session('status'))
+  <script>
+    Swal.fire({
+      icon : 'success',
+      title : 'Sukses!',
+      text : "{{ session('status') }}",
+    });
+  </script>
+  @endif
 @endsection

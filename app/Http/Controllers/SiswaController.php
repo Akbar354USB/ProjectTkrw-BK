@@ -28,7 +28,7 @@ class SiswaController extends Controller
 
         Siswa::create($request->all());
 
-        return redirect()->route('siswa-index');
+        return redirect()->route('siswa-index')->with('status', 'Sukses Tambah Data Siswa');
     }
 
     public function index(){
@@ -48,13 +48,13 @@ class SiswaController extends Controller
         $siswa = Siswa::where("id", $id)->first();
         $siswa->update($request->all());
 
-        return redirect()->route('siswa-index');
+        return redirect()->route('siswa-index')->with('status', 'Sukses Update Data Kelas');
     }
 
     public function destroy($id){
         $siswa = Siswa::where("id", $id)->first();
         $siswa->delete();
 
-        return redirect()->route('siswa-index');
+        return redirect()->route('siswa-index')->with('status', 'Sukses Hapus Data Kelas');
     }
 }

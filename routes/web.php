@@ -48,15 +48,15 @@ Route::post('guru/store', [GuruController::class, 'store'])->name('guru-store');
 Route::get('/guru/index', [GuruController::class, 'index'])->name('guru-index');
 Route::get('/guru/edit{id}', [GuruController::class, 'edit'])->name('guru-edit');
 Route::put('/guru/update{id}', [GuruController::class, 'update'])->name('guru-update');
-// Route::delete('/kelas/delete{id}', [KelasController::class, 'destroy'])->name('kelas-delete');
+Route::delete('/guru/delete{id}', [GuruController::class, 'destroy'])->name('guru-delete');
 
 //route Peraturan
 Route::get('/peraturan/create', [PeraturanController::class, 'create'])->name('peraturan-create');
 Route::post('peraturan/store', [PeraturanController::class, 'store'])->name('peraturan-store');
 Route::get('/peraturan/index', [PeraturanController::class, 'index'])->name('peraturan-index');
-// Route::get('/kelas/edit{id}', [KelasController::class, 'edit'])->name('kelas-edit');
-// Route::put('/kelas/update{id}', [KelasController::class, 'update'])->name('kelas-update');
-// Route::delete('/kelas/delete{id}', [KelasController::class, 'destroy'])->name('kelas-delete');
+Route::get('/peraturan/edit{id}', [PeraturanController::class, 'edit'])->name('peraturan-edit');
+Route::put('/peraturan/update{id}', [PeraturanController::class, 'update'])->name('peraturan-update');
+Route::delete('/peraturan/delete{id}', [PeraturanController::class, 'destroy'])->name('peraturan-delete');
 
 //route pelanggaran
 Route::get('/pelanggaran/create', [PelanggaranController::class, 'create'])->name('pelanggaran-create');
@@ -85,6 +85,6 @@ Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('use
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-Route::match(["GET", "POST"], "/register", function(){
-    return redirect("/login");
-   })->name("register");
+// Route::match(["GET", "POST"], "/register", function(){
+//     return redirect("/login");
+//    })->name("register");

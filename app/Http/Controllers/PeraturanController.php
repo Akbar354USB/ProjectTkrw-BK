@@ -24,32 +24,32 @@ class PeraturanController extends Controller
 
         Peraturan::create($request->all());
 
-        return redirect()->route('peraturan-index');
+        return redirect()->route('peraturan-index')->with('status', 'Sukses Tambah Data Peraturan');
     }
 
     public function index(){
-        $peraturan = Peraturan::all();
+        $peraturan = Peraturan::paginate(5);
         
         return view('Admin.Peraturan.index', compact('peraturan'));
     }
 
-    // public function edit($id){
-    //     $kelas = Kelas::where("id", $id)->first();
+    public function edit($id){
+        $peraturan = Peraturan::where("id", $id)->first();
 
-    //     return view('Admin.Kelas.edit', compact('kelas'));
-    // }
+        return view('Admin.Peraturan.edit', compact('peraturan'));
+    }
 
-    // public function update(Request $request, $id){
-    //     $kelas = Kelas::where("id", $id)->first();
-    //     $kelas->update($request->all());
+    public function update(Request $request, $id){
+        $peraturan = Peraturan::where("id", $id)->first();
+        $peraturan->update($request->all());
 
-    //     return redirect()->route('kelas-index');
-    // }
+        return redirect()->route('peraturan-index')->with('status', 'Sukses Update Data Peraturan');
+    }
 
-    // public function destroy($id){
-    //     $kelas = Kelas::where("id", $id)->first();
-    //     $kelas->delete();
+    public function destroy($id){
+        $peraturan = Peraturan::where("id", $id)->first();
+        $peraturan->delete();
 
-    //     return redirect()->route('kelas-index');
-    // }
+        return redirect()->route('peraturan-index')->with('status', 'Sukses Hapus Data Peraturan');
+    }
 }

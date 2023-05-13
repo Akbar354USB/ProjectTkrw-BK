@@ -26,7 +26,7 @@ class PelanggaranController extends Controller
 
         Pelanggaran::create($request->all());
 
-        return redirect()->route('pelanggaran-index');
+        return redirect()->route('pelanggaran-index')->with('status', 'Sukses Tambah Data Pelanggaran');
     }
 
     public function index(){
@@ -46,13 +46,13 @@ class PelanggaranController extends Controller
         $pelanggaran = Pelanggaran::where("id", $id)->first();
         $pelanggaran->update($request->all());
 
-        return redirect()->route('pelanggaran-index');
+        return redirect()->route('pelanggaran-index')->with('status', 'Sukses Update Data Pelanggaran');
     }
 
     public function destroy($id){
         $pelanggaran = Pelanggaran::where("id", $id)->first();
         $pelanggaran->delete();
 
-        return redirect()->route('pelanggaran-index');
+        return redirect()->route('pelanggaran-index')->with('status', 'Sukses Hapus Data Pelanggaran');
     }
 }

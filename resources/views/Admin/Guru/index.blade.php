@@ -31,8 +31,8 @@
       <td>{{ $item->jabatan }}</td>
       <td>{{ $item->telpon }}</td>
       <td>
-          <a class="btn btn-primary" href="" >Edit</a>
-          <form action="" method="post" style="display: inline" class="form-check-inline">
+          <a class="btn btn-primary" href="{{ route('guru-edit', $item->id) }}" >Edit</a>
+          <form action="{{ route('guru-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
               @csrf
               @method('DELETE')
               <button class="btn btn-danger" type="submit">Hapus</button>
@@ -43,5 +43,21 @@
   </tbody>
 </table>
 </div>
+
+
+<div class="mt-2 float-right">
+  {{ $guru->links() }}
+</div>
+
+
+@if (session('status'))
+<script>
+  Swal.fire({
+    icon : 'success',
+    title : 'Sukses!',
+    text : "{{ session('status') }}",
+  });
+</script>
+@endif
 
 @endsection
