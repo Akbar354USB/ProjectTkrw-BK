@@ -15,20 +15,30 @@
         <div class="form-group">
             <label >PELANGGARAN</label>
             <input class="form-control" name="nama_pelanggaran">
+            @error('nama_pelanggaran')
+            <span class="text-danger">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
           <div class="form-group">
             <label >SKOR</label>
             <input class="form-control" name="skor">
+            @error('skor')
+            <span class="text-danger">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
-        {{-- <div class="form-group">
-          <label >TANGGAL</label>
-          <input type="text" class="form-control" name="tanggal">
-      </div> --}}
-
-      <div class="mb-3">
-        <label class="form-label" for="basic-form-dob">TANGGAL</label>
-        <input class="form-control" name="tanggal" id="basic-form-dob" type="date" />
-      </div>
+        <div class="mb-3">
+          <label class="form-label" for="basic-form-dob">TANGGAL</label>
+          <input class="form-control" name="tanggal" id="basic-form-dob" type="date" />
+          @error('tanggal')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

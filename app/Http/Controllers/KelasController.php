@@ -12,8 +12,17 @@ class KelasController extends Controller
     }
 
     public function store(Request $request){
-        Kelas::create($request->all());
+        $this->validate($request, [
+            'kode_kelas' => 'required',
+            'nama' => 'required',
+            'keterangan' => 'required',
+        ],[
+            'kode_kelas.required' => 'kode kelas belum di masukkan',
+            'nama.required' => 'nama kelas belum di masukkan',
+            'keterangan.required' => 'keterangan belum di masukkan'
+        ]);
 
+        Kelas::create($request->all());
         return redirect()->route('kelas-index');
     }
 

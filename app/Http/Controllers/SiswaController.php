@@ -14,6 +14,18 @@ class SiswaController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request, [
+            'nis' => 'required',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+        ],[
+            'nis.required' => 'nis belum di masukkan',
+            'nama.required' => 'nama siswa belum di masukkan',
+            'jenis_kelamin.required' => 'jenis_kelamin belum di masukkan',
+            'alamat.required' => 'alamat belum di masukkan',
+        ]);
+
         Siswa::create($request->all());
 
         return redirect()->route('siswa-index');

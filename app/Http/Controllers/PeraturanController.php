@@ -12,6 +12,16 @@ class PeraturanController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request, [
+            'kode_peraturan' => 'required',
+            'nama' => 'required',
+            'skor' => 'required',
+        ],[
+            'kode_peraturan.required' => 'kode peraturan belum di masukkan',
+            'nama.required' => 'nama peraturan belum di masukkan',
+            'skor.required' => 'point pelanggaran belum di masukkan'
+        ]);
+
         Peraturan::create($request->all());
 
         return redirect()->route('peraturan-index');

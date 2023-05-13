@@ -14,6 +14,16 @@ class RiwayatController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request, [
+            'nama_pelanggaran' => 'required',
+            'skor' => 'required',
+            'tanggal' => 'required',
+        ],[
+            'nama_pelanggaran.required' => 'nama pelanggaran belum di masukkan',
+            'skor.required' => 'skor belum di masukkan',
+            'tanggal.required' => 'tanggal belum di masukkan'
+        ]);
+
         Riwayat::create($request->all());
 
         return redirect()->route('riwayat-index');

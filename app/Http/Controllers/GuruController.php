@@ -12,6 +12,17 @@ class GuruController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request, [
+            'kode_guru' => 'required',
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'telpon' => 'required',
+        ],[
+            'kode_guru.required' => 'kode guru belum di masukkan',
+            'nama.required' => 'nama guru belum di masukkan',
+            'jabatan.required' => 'jabatan belum di masukkan',
+            'telpon.required' => 'telpon belum di masukkan',
+        ]);
         Guru::create($request->all());
 
         return redirect()->route('guru-index');

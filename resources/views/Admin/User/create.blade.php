@@ -8,10 +8,20 @@
       <div class="mb-3">
         <label>Nama</label>
         <input class="form-control" name="name">
+        @error('name')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
       <div class="mb-3">
         <label>Email</label>
         <input class="form-control" name="email">
+        @error('email')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
       <div class="mb-3">
         <label for="">Role</label>
@@ -27,11 +37,21 @@
         <input type="checkbox" name="role" value="KEPSEK">
         <label for="CUSTOMER">KEPSEK</label>
         <br>
+        @error('role')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
 
       </div>
       <div class="mb-3">
         <label>Password</label>
         <input class="form-control" name="password">
+        @error('password')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
 
       <button class="btn btn-primary" type="submit">Submit</button>

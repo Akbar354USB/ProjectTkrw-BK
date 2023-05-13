@@ -7,10 +7,20 @@
         <div class="form-group">
           <label >NIS</label>
           <input class="form-control" name="nis">
+          @error('nis')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
         </div>
         <div class="form-group">
             <label >NAMA SISWA</label>
             <input class="form-control" name="nama">
+            @error('nama')
+            <span class="text-danger">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
           </div>
         <div class="form-group">
             <select class="form-control" name="kelas_id">
@@ -23,10 +33,20 @@
         <div class="form-group">
           <label >JENIS KELAMIN</label>
           <input class="form-control" name="jenis_kelamin">
+          @error('jenis_kelamin')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
       </div>
         <div class="form-group">
           <label >ALAMAT</label>
           <input class="form-control" name="alamat">
+          @error('alamat')
+          <span class="text-danger">
+            <strong>{{ $message }}</strong>     
+          </span>
+        @enderror
       </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

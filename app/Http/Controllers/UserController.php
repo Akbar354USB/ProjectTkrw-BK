@@ -26,6 +26,18 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'role' => 'required',
+            'password' => 'required',
+        ],[
+            'name.required' => 'nama belum di masukkan',
+            'email.required' => 'email belum di masukkan',
+            'role.required' => 'role belum di pilih',
+            'password.required' => 'password belum di masukkan'
+        ]);
+
         $post = $request->all();
         $post['password'] = Hash::make($request->password);
         $post['photo'] = 'profile.svg';
