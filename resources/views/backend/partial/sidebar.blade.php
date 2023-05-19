@@ -21,6 +21,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    @if (Auth::user()->role == "ADMIN")
     <!-- Heading -->
     <div class="sidebar-heading">Bagian Admin</div>
 
@@ -49,7 +50,10 @@
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
+    @endif
+    
 
+    @if (Auth::user()->role == "PIHAK BK")
     <!-- Heading -->
     <div class="sidebar-heading">Bagian pihak BK</div>
 
@@ -73,9 +77,11 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Data Laporan</span></a>
     </li>
+    @endif
+    
     <!-- Divider -->
     <hr class="sidebar-divider">
-
+    @if (Auth::user()->role == "SISWA")
     <!-- Heading -->
     <div class="sidebar-heading">Bagian Siswa</div>
 
@@ -91,30 +97,38 @@
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+    @endif
+    
+    
+    @if (Auth::user()->role == "GURU")
+    <!-- Heading -->
+    <div class="sidebar-heading">Bagian Guru</div>
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Bagian Guru</div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('pelanggaran-create') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Lapor Pelanggaran</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('riwayat-index') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Data Riwayat Pelanggaran</span></a>
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+    @endif
+    
+    @if (Auth::user()->role == "KEPSEK")
+     <!-- Heading -->
+     <div class="sidebar-heading">Bagian Kepsek</div>
 
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('pelanggaran-create') }}">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Lapor Pelanggaran</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('riwayat-index') }}">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Data Riwayat Pelanggaran</span></a>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-        <!-- Heading -->
-        <div class="sidebar-heading">Bagian Kepsek</div>
-
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('peraturan-index') }}">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Daftar Laporan Masuk</span></a>
-        </li>
+     <li class="nav-item">
+         <a class="nav-link" href="{{ route('peraturan-index') }}">
+             <i class="fas fa-fw fa-wrench"></i>
+             <span>Daftar Laporan Masuk</span></a>
+     </li>
+    @endif
+       
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

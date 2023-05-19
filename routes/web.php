@@ -8,9 +8,10 @@ use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckRoleMiddleware;
 use App\Models\Riwayat;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +27,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//route kelas
+
+//route admin
+Route::middleware('auth', 'ChekRole:ADMIN')->group(function(){
+
+    //route kelas
 Route::get('/kelas/create', [KelasController::class, 'create'])->name('kelas-create');
 Route::post('kelas/store', [KelasController::class, 'store'])->name('kelas-store');
 Route::get('/kelas/index', [KelasController::class, 'index'])->name('kelas-index');
@@ -80,6 +85,11 @@ Route::get('/user/detail{id}', [UserController::class, 'detail'])->name('user-de
 Route::get('/user/create', [UserController::class, 'create'])->name('user-create');
 Route::post('user/store', [UserController::class, 'store'])->name('user-store');
 Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('user-delete');
+
+
+});
+
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
