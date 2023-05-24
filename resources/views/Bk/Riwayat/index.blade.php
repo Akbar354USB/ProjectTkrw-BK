@@ -3,9 +3,11 @@
 @section('content')
 <div class="card card-body">
     <div class="form-group row mb-1 mt-3">
+      @if (Auth::user()->role == "PIHAK BK")
   <div class="col-sm-6 mb-3 mb-sm-0">
     <a href="{{ route('riwayat-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
   </div>
+  @endif
   </div>
     <table class="table table-striped mt-1">
     <thead>
@@ -15,7 +17,9 @@
         <th scope="col">PELANGGARAN</th>
         <th scope="col">SKOR</th>
         <th scope="col">TANGGAL</th>
+        @if (Auth::user()->role == "PIHAK BK")
         <th scope="col">AKSI</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -26,6 +30,7 @@
             <td>{{ $item->nama_pelanggaran }}</td>
             <td>{{ $item->skor }}</td>
             <td>{{ $item->tanggal }}</td>
+            @if (Auth::user()->role == "PIHAK BK")
             <td>
                 <a class="btn btn-primary" href="{{ route('riwayat-edit', $item->id) }}" >Edit</a>
                 <form action="{{ route('riwayat-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
@@ -34,6 +39,7 @@
                     <button class="btn btn-danger" type="submit">Hapus</button>
                 </form>
             </td>
+            @endif
             </tr>
         @endforeach
     </tbody>

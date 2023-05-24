@@ -1,7 +1,7 @@
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; D0220014 Muhammad Akbar {{ date('Y') }}</span>
-        </div>
+<footer class="main-footer">
+    <strong>Copyright &copy;</strong>
+    {{ date('Y') }}
+    <div class="float-right d-none d-sm-inline-block">
+      <b>By</b> D0220014
     </div>
-</footer>
+  </footer>

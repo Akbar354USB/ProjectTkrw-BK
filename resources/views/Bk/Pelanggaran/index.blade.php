@@ -15,7 +15,9 @@
         <th scope="col">NAMA PELANGGAR</th>
         <th scope="col">KELAS</th>
         <th scope="col">TANGGAL</th>
+        @if (Auth::user()->role == "PIHAK BK")
         <th scope="col">AKSI</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -26,6 +28,7 @@
             <td>{{ $item->nama_siswa }}</td>
             <td>{{ $item->kelas->nama }}</td>
             <td>{{ $item->tanggal }}</td>
+            @if (Auth::user()->role == "PIHAK BK")
             <td>
                 <a class="btn btn-primary" href="{{ route('pelanggaran-edit', $item->id) }}" >Edit</a>
                 <form action="{{ route('pelanggaran-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
@@ -34,6 +37,7 @@
                     <button class="btn btn-danger" type="submit">Hapus</button>
                 </form>
             </td>
+            @endif
             </tr>
         @endforeach
     </tbody>

@@ -64,9 +64,6 @@ Route::put('/peraturan/update{id}', [PeraturanController::class, 'update'])->nam
 Route::delete('/peraturan/delete{id}', [PeraturanController::class, 'destroy'])->name('peraturan-delete');
 
 //route pelanggaran
-Route::get('/pelanggaran/create', [PelanggaranController::class, 'create'])->name('pelanggaran-create');
-Route::post('pelanggaran/store', [PelanggaranController::class, 'store'])->name('pelanggaran-store');
-Route::get('/pelanggaran/index', [PelanggaranController::class, 'index'])->name('pelanggaran-index');
 Route::get('/pelanggaran/edit{id}', [PelanggaranController::class, 'edit'])->name('pelanggaran-edit');
 Route::put('/pelanggaran/update{id}', [PelanggaranController::class, 'update'])->name('pelanggaran-update');
 Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran-delete');
@@ -74,7 +71,6 @@ Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy
 //route Riwayat
 Route::get('/riwayat/create', [RiwayatController::class, 'create'])->name('riwayat-create');
 Route::post('riwayat/store', [RiwayatController::class, 'store'])->name('riwayat-store');
-Route::get('/riwayat/index', [RiwayatController::class, 'index'])->name('riwayat-index');
 Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riwayat-edit');
 Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
 Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
@@ -90,9 +86,19 @@ Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('use
 });
 
 
+Route::middleware('auth', 'ChekRole:SISWA,GURU')->group(function(){
+
+Route::get('/pelanggaran/create', [PelanggaranController::class, 'create'])->name('pelanggaran-create');
+Route::post('pelanggaran/store', [PelanggaranController::class, 'store'])->name('pelanggaran-store');
+Route::get('/pelanggaran/index', [PelanggaranController::class, 'index'])->name('pelanggaran-index');
+Route::get('/riwayat/index', [RiwayatController::class, 'index'])->name('riwayat-index');
+
+});
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user/myprofile', [UserController::class, 'myprofile'])->name('user-profile');
 
 Auth::routes();
 // Route::match(["GET", "POST"], "/register", function(){

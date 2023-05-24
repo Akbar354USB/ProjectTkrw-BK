@@ -20,6 +20,12 @@ class UserController extends Controller
         return view('Admin.User.detail', compact('user'));
     }
 
+    public function myprofile(){
+        $user = User::all();
+        
+        return view('Admin.User.profile', compact('user'));
+    }
+
     public function create(){
 
         return view('Admin.User.create');
