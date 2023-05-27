@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomor');
             $table->foreignId('siswa_id')->constrained('siswas')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('pelanggaran_id')->constrained('pelanggarans')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('riwayat_id')->constrained('riwayats')->onUpdate('cascade')->onDelete('restrict');
             $table->string('keterangan');
             $table->timestamps();
         });

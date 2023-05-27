@@ -1,5 +1,9 @@
 @extends('backend.master')
 
+@section('tittle')
+    <title>B-Konseling | Create Guru</title>
+@endsection
+
 @section('content')
     <div class="card card-body">
       <form action="{{ route('guru-store') }}" method="post">

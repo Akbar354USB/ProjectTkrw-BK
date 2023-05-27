@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('tittle')
-    <title>B-Konseling | Data Peraturan</title>
+    <title>B-Konseling | Index Peraturan</title>
 @endsection
 
 @section('content')

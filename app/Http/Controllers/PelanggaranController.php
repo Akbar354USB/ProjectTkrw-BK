@@ -17,11 +17,9 @@ class PelanggaranController extends Controller
         $this->validate($request, [
             'nama_pelanggaran' => 'required',
             'nama_siswa' => 'required',
-            'tanggal' => 'required',
         ],[
             'nama_pelanggaran.required' => 'nama pelanggaran belum di masukkan',
             'nama_siswa.required' => 'nama siswa kelas belum di masukkan',
-            'tanggal.required' => 'tanggal belum di masukkan'
         ]);
 
         Pelanggaran::create($request->all());

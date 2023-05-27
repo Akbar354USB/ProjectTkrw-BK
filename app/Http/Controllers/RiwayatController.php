@@ -30,7 +30,7 @@ class RiwayatController extends Controller
     }
 
     public function index(){
-        $riwayat = Riwayat::with("siswas")->paginate(5);
+        $riwayat = Riwayat::with("siswa")->paginate(5);
 
         return view('Bk.Riwayat.index', compact("riwayat"));
     }

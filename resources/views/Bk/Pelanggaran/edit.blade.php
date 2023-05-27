@@ -1,5 +1,9 @@
 @extends('backend.master')
 
+@section('tittle')
+    <title>B-Konseling | Edit Pelanggaran</title>
+@endsection
+
 @section('content')
   <div class="card card-body">
     <form action="{{ route('pelanggaran-update', $pelanggaran->id) }}" method="post">

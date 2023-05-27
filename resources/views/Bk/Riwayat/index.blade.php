@@ -1,5 +1,9 @@
 @extends('backend.master')
 
+@section('tittle')
+    <title>B-Konseling | Index Riwayat</title>
+@endsection
+
 @section('content')
 <div class="card card-body">
     <div class="form-group row mb-1 mt-3">
@@ -26,7 +30,7 @@
         @foreach ($riwayat as $key=>$item)
         <tr>
             <th scope="row">{{ $key +1 }}</th>
-            <td>{{ $item->siswa_id}}</td>
+            <td>{{ $item->siswa->nama}}</td>
             <td>{{ $item->nama_pelanggaran }}</td>
             <td>{{ $item->skor }}</td>
             <td>{{ $item->tanggal }}</td>

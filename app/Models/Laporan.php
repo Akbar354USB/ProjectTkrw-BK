@@ -11,16 +11,15 @@ class Laporan extends Model
     protected $fillable = [
         'nomor',
         'siswa_id',
-        'pelanggaran_id',
+        'riwayat_id',
         'keterangan'
-
     ];
 
-    public function siswas(){
+    public function siswa(){
         return $this->belongsTo(Siswa::class);
     }
 
-    public function pelanggaran(){
-        return $this->belongsTo(Pelanggaran::class);
+    public function riwayat(){
+        return $this->belongsTo(Riwayat::class);
     }
 }

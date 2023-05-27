@@ -1,5 +1,9 @@
 @extends('backend.master')
 
+@section('tittle')
+    <title>B-Konseling | Index Pelanggaran</title>
+@endsection
+
 @section('content')
 <div class="card card-body">
     <div class="form-group row mb-1 mt-3">
