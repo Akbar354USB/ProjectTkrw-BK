@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Siswa;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelanggarans', function (Blueprint $table) {
+        Schema::create('laporans', function (Blueprint $table) {
             $table->id();
-            $table->string("nama_pelanggaran");
-            $table->string("nama_siswa");
+            $table->string('nomor');
+            $table->foreignId('siswa_id')->constrained('siswas')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('pelanggaran_id')->constrained('pelanggarans')->onUpdate('cascade')->onDelete('restrict');
+            $table->string('keterangan');
             $table->timestamps();
-            $table->foreignId('kelas_id')->constrained('kelas')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelanggarans');
+        Schema::dropIfExists('laporans');
     }
 };

@@ -27,7 +27,7 @@
             <td>{{ $item->nama_pelanggaran }}</td>
             <td>{{ $item->nama_siswa }}</td>
             <td>{{ $item->kelas->nama }}</td>
-            <td>{{ $item->tanggal }}</td>
+            <td>{{ $item->created_at }}</td>
             @if (Auth::user()->role == "PIHAK BK")
             <td>
                 <a class="btn btn-primary" href="{{ route('pelanggaran-edit', $item->id) }}" >Edit</a>

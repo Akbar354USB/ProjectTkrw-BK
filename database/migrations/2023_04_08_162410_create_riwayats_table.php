@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('skor');
             $table->date('tanggal');
             $table->timestamps();
-
             $table->foreignId('siswa_id')->constrained('siswas')->onUpdate('cascade')->onDelete('restrict');
         });
     }

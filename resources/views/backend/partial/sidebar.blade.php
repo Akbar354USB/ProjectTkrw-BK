@@ -272,7 +272,7 @@
           @endif
 
 
-          @if (Auth::user()->role == "KEPSEK, PIHAK BK")
+          @if (Auth::user()->role == "ADMIN")
           <li class="nav-item">
             <a href="{{ route('user-index') }}" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>

@@ -63,17 +63,9 @@ Route::get('/peraturan/edit{id}', [PeraturanController::class, 'edit'])->name('p
 Route::put('/peraturan/update{id}', [PeraturanController::class, 'update'])->name('peraturan-update');
 Route::delete('/peraturan/delete{id}', [PeraturanController::class, 'destroy'])->name('peraturan-delete');
 
-//route pelanggaran
-Route::get('/pelanggaran/edit{id}', [PelanggaranController::class, 'edit'])->name('pelanggaran-edit');
-Route::put('/pelanggaran/update{id}', [PelanggaranController::class, 'update'])->name('pelanggaran-update');
-Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran-delete');
 
-//route Riwayat
-Route::get('/riwayat/create', [RiwayatController::class, 'create'])->name('riwayat-create');
-Route::post('riwayat/store', [RiwayatController::class, 'store'])->name('riwayat-store');
-Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riwayat-edit');
-Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
-Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
+
+
 
 //user
 Route::get('/user/index', [UserController::class, 'index'])->name('user-index');
@@ -86,12 +78,37 @@ Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('use
 });
 
 
-Route::middleware('auth', 'ChekRole:SISWA,GURU')->group(function(){
+Route::middleware('auth', 'ChekRole:SISWA,GURU,PIHAK BK')->group(function(){
 
 Route::get('/pelanggaran/create', [PelanggaranController::class, 'create'])->name('pelanggaran-create');
 Route::post('pelanggaran/store', [PelanggaranController::class, 'store'])->name('pelanggaran-store');
 Route::get('/pelanggaran/index', [PelanggaranController::class, 'index'])->name('pelanggaran-index');
+
+
+});
+
+Route::middleware('auth', 'ChekRole:PIHAK BK')->group(function(){
+//route Riwayat
+Route::get('/riwayat/create', [RiwayatController::class, 'create'])->name('riwayat-create');
+Route::post('riwayat/store', [RiwayatController::class, 'store'])->name('riwayat-store');
+Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riwayat-edit');
 Route::get('/riwayat/index', [RiwayatController::class, 'index'])->name('riwayat-index');
+Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
+Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
+//route pelanggaran
+Route::get('/pelanggaran/edit{id}', [PelanggaranController::class, 'edit'])->name('pelanggaran-edit');
+Route::put('/pelanggaran/update{id}', [PelanggaranController::class, 'update'])->name('pelanggaran-update');
+Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran-delete');
+
+//route Peraturan
+Route::get('/peraturan/create', [PeraturanController::class, 'create'])->name('peraturan-create');
+Route::post('peraturan/store', [PeraturanController::class, 'store'])->name('peraturan-store');
+Route::get('/peraturan/index', [PeraturanController::class, 'index'])->name('peraturan-index');
+Route::get('/peraturan/edit{id}', [PeraturanController::class, 'edit'])->name('peraturan-edit');
+Route::put('/peraturan/update{id}', [PeraturanController::class, 'update'])->name('peraturan-update');
+Route::delete('/peraturan/delete{id}', [PeraturanController::class, 'destroy'])->name('peraturan-delete');
+
+
 
 });
 

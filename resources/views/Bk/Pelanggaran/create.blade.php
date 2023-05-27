@@ -30,15 +30,6 @@
               @endforeach
             </select>
           </div>
-        <div class="form-group">
-          <label >TANGGAL</label>
-          <input class="form-control" name="tanggal" id="basic-form-dob" type="date"/>
-          @error('tanggal')
-          <span class="text-danger">
-            <strong>{{ $message }}</strong>
-          </span>
-          @enderror
-      </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

@@ -21,10 +21,6 @@
             @endforeach
           </select>
         </div>
-      <div class="form-group">
-        <label >TANGGAL</label>
-        <input class="form-control" name="tanggal" value="{{ $pelanggaran->tanggal }}" type="date">
-    </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
