@@ -37,6 +37,12 @@ class LaporanControlller extends Controller
         return view('Bk.Laporan.index', compact("laporan"));
     }
 
+    public function LaporanCard(){
+        $laporan = Laporan::with("siswa","riwayat");
+
+        return view('Bk.Laporan.laporanCard', compact("laporan"));
+    }
+
     // public function edit($id){
     //     $siswa = Siswa::where("id", $id)->first();
     //     $kelas = Kelas::all();

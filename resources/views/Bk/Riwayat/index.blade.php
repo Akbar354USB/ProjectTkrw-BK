@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+<div class="text-center">
+  <h1>DAFTAR RIWAYAT PELANGGARAN</h1>
+</div>
+<P></P>
+<P></P>
 <div class="card card-body">
     <div class="form-group row mb-1 mt-3">
       @if (Auth::user()->role == "PIHAK BK")

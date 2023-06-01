@@ -70,32 +70,23 @@ Route::get('/user/detail{id}', [UserController::class, 'detail'])->name('user-de
 Route::get('/user/create', [UserController::class, 'create'])->name('user-create');
 Route::post('user/store', [UserController::class, 'store'])->name('user-store');
 Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('user-delete');
+});
 
-
-//laporan
-Route::get('/laporan/create', [LaporanControlller::class, 'create'])->name('laporan-create');
-Route::post('laporan/store', [LaporanControlller::class, 'store'])->name('laporan-store');
-Route::get('/laporan/index', [LaporanControlller::class, 'index'])->name('laporan-index');
-
-//route pelanggaran
-Route::get('/pelanggaran/edit{id}', [PelanggaranController::class, 'edit'])->name('pelanggaran-edit');
-Route::put('/pelanggaran/update{id}', [PelanggaranController::class, 'update'])->name('pelanggaran-update');
-Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran-delete');
+Route::middleware('auth', 'ChekRole:SISWA,GURU')->group(function(){
 Route::get('/pelanggaran/create', [PelanggaranController::class, 'create'])->name('pelanggaran-create');
 Route::post('pelanggaran/store', [PelanggaranController::class, 'store'])->name('pelanggaran-store');
+});
+
+Route::middleware('auth', 'ChekRole:SISWA,GURU,PIHAK BK')->group(function(){
 Route::get('/pelanggaran/index', [PelanggaranController::class, 'index'])->name('pelanggaran-index');
+});
 
-
-
-//route Riwayat
-Route::get('/riwayat/create', [RiwayatController::class, 'create'])->name('riwayat-create');
-Route::post('riwayat/store', [RiwayatController::class, 'store'])->name('riwayat-store');
-Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riwayat-edit');
+Route::middleware('auth', 'ChekRole:SISWA,GURU,PIHAK BK')->group(function(){
 Route::get('/riwayat/index', [RiwayatController::class, 'index'])->name('riwayat-index');
-Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
-Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
+});
 
 
+Route::middleware('auth', 'ChekRole:PIHAK BK')->group(function(){
 //route Peraturan
 Route::get('/peraturan/create', [PeraturanController::class, 'create'])->name('peraturan-create');
 Route::post('peraturan/store', [PeraturanController::class, 'store'])->name('peraturan-store');
@@ -104,6 +95,33 @@ Route::get('/peraturan/edit{id}', [PeraturanController::class, 'edit'])->name('p
 Route::put('/peraturan/update{id}', [PeraturanController::class, 'update'])->name('peraturan-update');
 Route::delete('/peraturan/delete{id}', [PeraturanController::class, 'destroy'])->name('peraturan-delete');
 
+//route Riwayat
+Route::get('/riwayat/create', [RiwayatController::class, 'create'])->name('riwayat-create');
+Route::post('riwayat/store', [RiwayatController::class, 'store'])->name('riwayat-store');
+Route::get('/riwayat/edit{id}', [RiwayatController::class, 'edit'])->name('riwayat-edit');
+Route::put('/riwayat/update{id}', [RiwayatController::class, 'update'])->name('riwayat-update');
+Route::delete('/riwayat/delete{id}', [RiwayatController::class, 'destroy'])->name('riwayat-delete');
+
+//route pelanggaran
+Route::get('/pelanggaran/edit{id}', [PelanggaranController::class, 'edit'])->name('pelanggaran-edit');
+Route::put('/pelanggaran/update{id}', [PelanggaranController::class, 'update'])->name('pelanggaran-update');
+Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy'])->name('pelanggaran-delete');
+
+//laporan
+Route::get('/laporan/create', [LaporanControlller::class, 'create'])->name('laporan-create');
+Route::post('laporan/store', [LaporanControlller::class, 'store'])->name('laporan-store');
+});
+
+
+Route::middleware('auth', 'ChekRole:KEPSEK,PIHAK BK')->group(function(){
+Route::get('/laporan/index', [LaporanControlller::class, 'index'])->name('laporan-index');
+Route::get('/laporan/card-laporan', [LaporanControlller::class, 'LaporanCard'])->name('laporan-card-index');
+});
+
+
+Route::middleware('auth', 'ChekRole:ADMIN')->group(function(){
+
+    
 });
 
 

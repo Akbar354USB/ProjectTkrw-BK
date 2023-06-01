@@ -7,9 +7,16 @@
 @section('content')
 <div class="card card-body">
     <div class="form-group row mb-1 mt-3">
-  <div class="col-sm-6 mb-3 mb-sm-0">
-    <a href="{{ route('pelanggaran-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
-  </div>
+      @if (Auth::user()->role == "GURU")
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <a href="{{ route('pelanggaran-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
+        </div>
+      @endif
+      @if (Auth::user()->role == "SISWA")
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <a href="{{ route('pelanggaran-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
+        </div>
+      @endif
   </div>
     <table class="table table-striped mt-1">
     <thead>

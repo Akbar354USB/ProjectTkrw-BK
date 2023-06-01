@@ -5,13 +5,18 @@
 @endsection
 
 @section('content')
+<div class="text-center">
+  <h1>DAFTAR PENGGUNA</h1>
+</div>
+<P></P>
+<P></P>
 <div class="card card-body">
-<div class="form-group row mb-1 mt-3">
+<div class="form-group row mb-1">
 <div class="col-sm-6 mb-3 mb-sm-0">
   <a href="{{ route('user-create') }}"><button class="btn btn-primary mb-4">+ Tambah Data User</button></a>
 </div>
 </div>
-  <table class="table table-striped mt-1">
+  <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">NO</th>

@@ -109,6 +109,27 @@
           </li>
           @endif
 
+          @if (Auth::user()->role == "GURU")
+          <li class="nav-item">
+            <a href="{{ route('pelanggaran-create') }}" class="nav-link">
+              <i class="nav-icon fas far fa-user-edit"></i>
+              {{-- <i class="far fa-user-edit"></i> --}}
+              <p>
+                Lapor Pelanggaran
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('riwayat-index') }}" class="nav-link">
+              <i class="nav-icon fas fa-history"></i>
+              <p>
+                Riwayat Pelanggaran
+              </p>
+            </a>
+          </li>
+          @endif
+
           @if (Auth::user()->role == "PIHAK BK")
           <li class="nav-item">
             <a href="{{ route('peraturan-index') }}" class="nav-link">
@@ -136,10 +157,20 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('laporan-index') }}" class="nav-link">
+              <i class="nav-icon fas fa-clipboard-list"></i>
+              {{-- <i class="fas fa-clipboard-list"></i> --}}
+              <p>
+                Data Laporan
+              </p>
+            </a>
+          </li>
           @endif
 
 
-          @if (Auth::user()->role == "ADMIN")
+          @if (Auth::user()->role == "KEPSEK")
           <li class="nav-item">
             <a href="{{ route('laporan-index') }}" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
