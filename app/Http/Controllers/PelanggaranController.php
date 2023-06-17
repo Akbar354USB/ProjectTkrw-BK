@@ -27,8 +27,14 @@ class PelanggaranController extends Controller
         return redirect()->route('pelanggaran-index')->with('status', 'Sukses Tambah Data Pelanggaran');
     }
 
-    public function index(){
+    public function index(Request $request){
         $pelanggaran = Pelanggaran::with("kelas")->paginate(5);
+
+        $filterKeyword = $request->get('nama_siswa');
+        if($filterKeyword){
+        $pelanggaran = Pelanggaran::where("nama_siswa", "LIKE",
+        "%$filterKeyword%")->paginate(5);
+        }
 
         return view('Bk.Pelanggaran.index', compact('pelanggaran'));
     }

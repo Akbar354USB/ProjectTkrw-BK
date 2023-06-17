@@ -36,10 +36,10 @@
             <td>{{ $item->siswa->nama }}</td>
             <td>{{ $item->riwayat->nama_pelanggaran }}</td>
             <td>
-              <a class="btn btn-success" href="" >Detail</a>
               @if (Auth::user()->role == "PIHAK BK")
-                <a class="btn btn-primary" href="" >Edit</a>
-                <form action="" method="post" style="display: inline" class="form-check-inline">
+                <a class="btn btn-success" href="{{ route('laporan-detail', $item->id) }}" >Detail</a>
+                <a class="btn btn-primary" href="{{ route('laporan-edit', $item->id) }}" >Edit</a>
+                <form action="{{ route('laporan-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Hapus</button>

@@ -38,29 +38,38 @@ class LaporanControlller extends Controller
     }
 
     public function LaporanCard(){
-        $laporan = Laporan::with("siswa","riwayat");
+        $laporan = Laporan::with("siswa","riwayat")->paginate(4);
 
         return view('Bk.Laporan.laporanCard', compact("laporan"));
     }
 
-    // public function edit($id){
-    //     $siswa = Siswa::where("id", $id)->first();
-    //     $kelas = Kelas::all();
+    public function edit($id){
+        $laporan = Laporan::where("id", $id)->first();
+        $siswa = Siswa::all();
+        $riwayat = Riwayat::all();
 
-    //     return view("Admin.Siswa.edit", compact("siswa", "kelas"));
-    // }
+        return view("Bk.Laporan.edit", compact("laporan", "siswa","riwayat"));
+    }
 
-    // public function update(Request $request, $id){
-    //     $siswa = Siswa::where("id", $id)->first();
-    //     $siswa->update($request->all());
+    public function detail($id){
+        $laporan = Laporan::where("id", $id)->first();
+        $siswa = Siswa::all();
+        $riwayat = Riwayat::all();
 
-    //     return redirect()->route('siswa-index')->with('status', 'Sukses Update Data Kelas');
-    // }
+        return view("Bk.Laporan.detail", compact("laporan", "siswa","riwayat"));
+    }
 
-    // public function destroy($id){
-    //     $siswa = Siswa::where("id", $id)->first();
-    //     $siswa->delete();
+    public function update(Request $request, $id){
+        $laporan = Laporan::where("id", $id)->first();
+        $laporan->update($request->all());
 
-    //     return redirect()->route('siswa-index')->with('status', 'Sukses Hapus Data Kelas');
-    // }
+        return redirect()->route('laporan-index')->with('status', 'Sukses Update Data Laporan');
+    }
+
+    public function destroy($id){
+        $laporan = Laporan::where("id", $id)->first();
+        $laporan->delete();
+
+        return redirect()->route('laporan-index')->with('status', 'Sukses Hapus Data Laporan');
+    }
 }

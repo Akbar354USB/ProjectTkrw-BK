@@ -29,8 +29,14 @@ class RiwayatController extends Controller
         return redirect()->route('riwayat-index')->with('status', 'Sukses Tambah Data Riwayat');
     }
 
-    public function index(){
+    public function index(Request $request){
         $riwayat = Riwayat::with("siswa")->paginate(5);
+
+        $filterKeyword = $request->get('nama_pelanggaran');
+        if($filterKeyword){
+        $riwayat = Riwayat::where("nama_pelanggaran", "LIKE",
+        "%$filterKeyword%")->paginate(5);
+        }
 
         return view('Bk.Riwayat.index', compact("riwayat"));
     }

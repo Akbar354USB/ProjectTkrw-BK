@@ -5,19 +5,39 @@
 @endsection
 
 @section('content')
+<div class="text-center">
+  <h1>DAFTAR PELANGGARAN</h1>
+</div>
+<P></P>
+<P></P>
 <div class="card card-body">
-    <div class="form-group row mb-1 mt-3">
-      @if (Auth::user()->role == "GURU")
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <a href="{{ route('pelanggaran-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
+  <div class="form-group row mb-1 mt-0">
+    @if (Auth::user()->role == "GURU")
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <a href="{{ route('pelanggaran-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
+    </div>
+    @endif
+
+    @if (Auth::user()->role == "SISWA")
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <a href="{{ route('pelanggaran-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
+    </div>
+    @endif
+  
+    <div class="ml-auto mr-5">
+      <form class="d-none d-sm-inline-block form-inline navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                aria-label="Search"  value="{{ Request::get('nama_siswa') }}" name="nama_siswa">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
         </div>
-      @endif
-      @if (Auth::user()->role == "SISWA")
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <a href="{{ route('pelanggaran-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
-        </div>
-      @endif
-  </div>
+        </form>
+    </div>
+    </div>
     <table class="table table-striped mt-1">
     <thead>
       <tr>

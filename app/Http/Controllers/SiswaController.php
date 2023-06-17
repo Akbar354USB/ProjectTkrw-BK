@@ -31,8 +31,14 @@ class SiswaController extends Controller
         return redirect()->route('siswa-index')->with('status', 'Sukses Tambah Data Siswa');
     }
 
-    public function index(){
+    public function index(Request $request){
         $siswa = Siswa::with("kelas")->paginate(5);
+
+        $filterKeyword = $request->get('nama');
+        if($filterKeyword){
+        $siswa = Siswa::where("nama", "LIKE",
+        "%$filterKeyword%")->paginate(5);
+        }
 
         return view('Admin.Siswa.index', compact("siswa"));
     }

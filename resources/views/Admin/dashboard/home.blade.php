@@ -1,6 +1,14 @@
 @extends('backend.master')
 
+@section('tittle')
+    <title>B-Konseling | BERANDA</title>
+@endsection
+
 @section('content')
+<div class="mt-3 mb-4">
+  <div><h1><strong>Selamat Datang... </strong><i>{{auth()->user()->name}}</i></h1></div>
+</div>
+
 <div class="row">
     <div class="col-lg-3 col-6">
       <!-- small box -->

@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('img/' . auth()->user()->photo) }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('photo/' . auth()->user()->photo) }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <h5 class="d-block text-white">{{auth()->user()->name}}</h5>
@@ -172,11 +172,11 @@
 
           @if (Auth::user()->role == "KEPSEK")
           <li class="nav-item">
-            <a href="{{ route('laporan-index') }}" class="nav-link">
+            <a href="{{ route('laporan-card-index') }}" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
               {{-- <i class="fas fa-clipboard-list"></i> --}}
               <p>
-                Data Laporan
+                Daftar Laporan
               </p>
             </a>
           </li>

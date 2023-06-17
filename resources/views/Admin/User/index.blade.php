@@ -6,16 +6,33 @@
 
 @section('content')
 <div class="text-center">
-  <h1>DAFTAR PENGGUNA</h1>
+  <h1>DAFTAR PENGGUNA TERDAFTAR</h1>
 </div>
 <P></P>
 <P></P>
 <div class="card card-body">
-<div class="form-group row mb-1">
-<div class="col-sm-6 mb-3 mb-sm-0">
-  <a href="{{ route('user-create') }}"><button class="btn btn-primary mb-4">+ Tambah Data User</button></a>
-</div>
-</div>
+
+<div class="form-group row mb-1 mt-0">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <a href="{{ route('user-create') }}"><button class="btn btn-primary mb-4">Tambah Data</button></a>
+  </div>
+
+  <div class="ml-auto mr-5">
+    <form class="d-none d-sm-inline-block form-inline navbar-search">
+      <div class="input-group">
+          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+              aria-label="Search"  value="{{ Request::get('name') }}" name="name">
+          <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-search fa-sm"></i>
+              </button>
+          </div>
+      </div>
+      </form>
+  </div>
+  </div>
+
+
   <table class="table table-striped">
   <thead>
     <tr>
@@ -34,10 +51,8 @@
       <td>{{ $item ->name }}</td>
       <td>{{ $item->email }}</td>
       <td>{{ $item->role }}</td>
-      <td><img src="{{ asset('img/' . auth()->user()->photo) }}" alt="" width="50" height="50"></td>
+      <td><img src="{{ asset('photo/' . $item->photo) }}" alt="" width="50" height="50"></td>
       <td>
-          <a class="btn btn-primary" href="" >Edit</a>
-          <a class="btn btn-success" href="{{ route('user-detail', $item->id) }}" >Detail</a>
           <form action="{{ route('user-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
               @csrf
               @method('DELETE')

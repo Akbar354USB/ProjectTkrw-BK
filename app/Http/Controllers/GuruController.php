@@ -28,8 +28,14 @@ class GuruController extends Controller
         return redirect()->route('guru-index')->with('status', 'Sukses Tambah Data Guru');
     }
 
-    public function index(){
+    public function index(Request $request){
         $guru = Guru::paginate(5);
+
+        $filterKeyword = $request->get('nama');
+        if($filterKeyword){
+        $guru = Guru::where("nama", "LIKE",
+        "%$filterKeyword%")->paginate(5);
+        }
         
         return view('Admin.Guru.index', compact('guru'));
     }

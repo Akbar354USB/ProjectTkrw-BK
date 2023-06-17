@@ -26,8 +26,14 @@ class KelasController extends Controller
         return redirect()->route('kelas-index')->with('status', 'Sukses Tambah Data Kelas');
     }
 
-    public function index(){
+    public function index(Request $request){
         $kelas = Kelas::paginate(5);
+
+        $filterKeyword = $request->get('nama');
+        if($filterKeyword){
+        $kelas = Kelas::where("nama", "LIKE",
+        "%$filterKeyword%")->paginate(5);
+        }
         
         return view('Admin.Kelas.index', compact('kelas'));
     }

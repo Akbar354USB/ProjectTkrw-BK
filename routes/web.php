@@ -56,20 +56,21 @@ Route::get('/guru/edit{id}', [GuruController::class, 'edit'])->name('guru-edit')
 Route::put('/guru/update{id}', [GuruController::class, 'update'])->name('guru-update');
 Route::delete('/guru/delete{id}', [GuruController::class, 'destroy'])->name('guru-delete');
 
-//route Peraturan
+//user
+Route::get('/user/index', [UserController::class, 'index'])->name('user-index');
+Route::get('/user/create', [UserController::class, 'create'])->name('user-create');
+Route::post('user/store', [UserController::class, 'store'])->name('user-store');
+Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('user-delete');
+});
+
+Route::middleware('auth', 'ChekRole:ADMIN,PIHAK BK')->group(function(){
+    //route Peraturan
 Route::get('/peraturan/create', [PeraturanController::class, 'create'])->name('peraturan-create');
 Route::post('peraturan/store', [PeraturanController::class, 'store'])->name('peraturan-store');
 Route::get('/peraturan/index', [PeraturanController::class, 'index'])->name('peraturan-index');
 Route::get('/peraturan/edit{id}', [PeraturanController::class, 'edit'])->name('peraturan-edit');
 Route::put('/peraturan/update{id}', [PeraturanController::class, 'update'])->name('peraturan-update');
 Route::delete('/peraturan/delete{id}', [PeraturanController::class, 'destroy'])->name('peraturan-delete');
-
-//user
-Route::get('/user/index', [UserController::class, 'index'])->name('user-index');
-Route::get('/user/detail{id}', [UserController::class, 'detail'])->name('user-detail');
-Route::get('/user/create', [UserController::class, 'create'])->name('user-create');
-Route::post('user/store', [UserController::class, 'store'])->name('user-store');
-Route::delete('/user/delete{id}', [UserController::class, 'destroy'])->name('user-delete');
 });
 
 Route::middleware('auth', 'ChekRole:SISWA,GURU')->group(function(){
@@ -87,13 +88,6 @@ Route::get('/riwayat/index', [RiwayatController::class, 'index'])->name('riwayat
 
 
 Route::middleware('auth', 'ChekRole:PIHAK BK')->group(function(){
-//route Peraturan
-Route::get('/peraturan/create', [PeraturanController::class, 'create'])->name('peraturan-create');
-Route::post('peraturan/store', [PeraturanController::class, 'store'])->name('peraturan-store');
-Route::get('/peraturan/index', [PeraturanController::class, 'index'])->name('peraturan-index');
-Route::get('/peraturan/edit{id}', [PeraturanController::class, 'edit'])->name('peraturan-edit');
-Route::put('/peraturan/update{id}', [PeraturanController::class, 'update'])->name('peraturan-update');
-Route::delete('/peraturan/delete{id}', [PeraturanController::class, 'destroy'])->name('peraturan-delete');
 
 //route Riwayat
 Route::get('/riwayat/create', [RiwayatController::class, 'create'])->name('riwayat-create');
@@ -110,11 +104,15 @@ Route::delete('/pelanggaran/delete{id}', [PelanggaranController::class, 'destroy
 //laporan
 Route::get('/laporan/create', [LaporanControlller::class, 'create'])->name('laporan-create');
 Route::post('laporan/store', [LaporanControlller::class, 'store'])->name('laporan-store');
+Route::delete('/laporan/delete{id}', [LaporanControlller::class, 'destroy'])->name('laporan-delete');
+Route::get('/laporan/edit{id}', [LaporanControlller::class, 'edit'])->name('laporan-edit');
+Route::put('/laporan/update{id}', [LaporanControlller::class, 'update'])->name('laporan-update');
 });
 
 
 Route::middleware('auth', 'ChekRole:KEPSEK,PIHAK BK')->group(function(){
 Route::get('/laporan/index', [LaporanControlller::class, 'index'])->name('laporan-index');
+Route::get('/laporan/detail{id}', [LaporanControlller::class, 'detail'])->name('laporan-detail');
 Route::get('/laporan/card-laporan', [LaporanControlller::class, 'LaporanCard'])->name('laporan-card-index');
 });
 
@@ -127,6 +125,7 @@ Route::middleware('auth', 'ChekRole:ADMIN')->group(function(){
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user/myprofile', [UserController::class, 'myprofile'])->name('user-profile');
+Route::post('/user/updatemyprofile', [UserController::class, 'updateProfile'])->name('update-profile');
 
 Auth::routes();
 // Route::match(["GET", "POST"], "/register", function(){

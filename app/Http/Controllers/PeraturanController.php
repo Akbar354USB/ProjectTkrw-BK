@@ -27,8 +27,14 @@ class PeraturanController extends Controller
         return redirect()->route('peraturan-index')->with('status', 'Sukses Tambah Data Peraturan');
     }
 
-    public function index(){
+    public function index(Request $request){
         $peraturan = Peraturan::paginate(5);
+
+        $filterKeyword = $request->get('nama');
+        if($filterKeyword){
+        $peraturan = Peraturan::where("nama", "LIKE",
+        "%$filterKeyword%")->paginate(5);
+        }
         
         return view('Admin.Peraturan.index', compact('peraturan'));
     }

@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $user = User::paginate(5);
+
+        $filterKeyword = $request->get('name');
+        if($filterKeyword){
+        $user = User::where("name", "LIKE",
+        "%$filterKeyword%")->paginate(5);
+        }
         
         return view('Admin.User.index', compact('user'));
     }
@@ -59,4 +68,32 @@ class UserController extends Controller
 
         return redirect()->route('user-index')->with('status', 'Sukses Hapus Data Kelas');
     }
+
+    public function updateProfile(Request $request){
+        $request->validate([
+            'photo' => 'mimes:png,jpeg,jpg,svg'
+        ]);
+
+        $id_user = Auth::user()->id;
+        $user = User::find($id_user);
+
+        if($request->hasFile('photo')){
+            $photo = $request->file('photo');
+            $ubah_nama_photo = time() . $photo->getClientOriginalName();
+            $photo->move('photo', $ubah_nama_photo);
+
+            if($user->photo != 'provile.svg'){
+                File::delete('photo' . $user->photo);
+            }
+
+            $user->photo = $ubah_nama_photo;
+            $user->save();
+        }
+
+        $user->email = $request->email;
+        $user->save();
+        return redirect()->route('user-profile')->with('status', 'Sukses Update Profile');
+    }
+
+    
 }
