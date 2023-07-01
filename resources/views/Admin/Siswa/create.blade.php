@@ -36,7 +36,6 @@
           </div>
         <div class="form-group">
           <label >JENIS KELAMIN</label>
-          {{-- <input class="form-control" name="jenis_kelamin"> --}}
           <select name="jenis_kelamin" class="form-control">
             <option value="LAKI-LAKI">LAKI-LAKI</option>
             <option value="PEREMPUAN">PEREMPUAN</option>
